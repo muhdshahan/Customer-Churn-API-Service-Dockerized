@@ -1,14 +1,15 @@
 import joblib, pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 df = pd.read_csv('data/bank_churn_dataset.csv')
 
-data = pd.get_dummies(df, ['Gender']).astype(int)
+encode = LabelEncoder()
+df['Gender'] = encode.fit_transform(df['Gender'])
 
-X = data.drop(columns=['Exited'])
-Y = data['Exited']
+X = df.drop(columns=['Exited', 'CustomerId'])
+Y = df['Exited']
 
 scale = StandardScaler()
 X = scale.fit_transform(X)
