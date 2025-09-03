@@ -20,5 +20,5 @@ def test_app():
 
     json_data = response.json()
 
-    assert 'prediction' in json_data
-    assert 0 <= json_data['prediction'] <= 1
+    assert 'Prediction' in json_data
+    assert 0 <= json_data['Prediction'] <= 1
