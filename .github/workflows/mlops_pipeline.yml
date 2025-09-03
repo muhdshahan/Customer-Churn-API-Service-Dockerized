@@ -34,7 +34,7 @@ jobs:
   build_and_deploy:
     name: Build and Deploy to Docker Hub
     runs-on: ubuntu-latest
-    needs: build_and_test  # Only run if build_and_test suceeds
+    needs: build_and_test  # Only run if build_and_test suceed
 
     steps:
     - name: Checkout repository
