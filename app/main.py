@@ -31,9 +31,11 @@ def predict(val: BankFeatures):
     df['Gender'] = LabelEncoder().fit_transform(df['Gender'])
     Prediction = model.predict(df)
     if Prediction == 1:
-        return {"Prediction": "The customer will Churn"}
+        return {"Prediction": 1,
+                 "message": "The customer will Churn"}
     else:
-        return {"Prediction": "The customer does not Churn"}
+        return {"Prediction": 0,
+                 "message": "The customer does not Churn"}
 
 
 
